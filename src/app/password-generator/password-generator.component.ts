@@ -1,13 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ClipboardService, ClipboardModule } from 'ngx-clipboard';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-password-generator',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ClipboardModule],
   templateUrl: './password-generator.component.html',
-  styleUrl: './password-generator.component.scss'
+  styleUrls: ['./password-generator.component.scss']
 })
 export class PasswordGeneratorComponent {
   password: string = '';
@@ -17,6 +18,8 @@ export class PasswordGeneratorComponent {
   includeNumbers: boolean = true;
   includeSymbols: boolean = true;
   passwordStrength: string = '';
+
+  constructor(private clipboardService: ClipboardService) {}
 
   generatePassword(): void {
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -58,5 +61,9 @@ export class PasswordGeneratorComponent {
     } else {
       this.passwordStrength = 'Strong';
     }
+  }
+
+  onCopySuccess(): void {
+    console.log('Password copied to clipboard!');
   }
 }

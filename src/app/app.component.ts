@@ -6,7 +6,7 @@ import { PasswordGeneratorComponent } from './password-generator/password-genera
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, PasswordGeneratorComponent],
+  imports: [CommonModule, RouterOutlet, PasswordGeneratorComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
