@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ClipboardService, ClipboardModule } from 'ngx-clipboard';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PasswordStrengthMeterComponent } from 'angular-password-strength-meter';
 
 @Component({
   selector: 'app-password-generator',
   standalone: true,
-  imports: [FormsModule, CommonModule, ClipboardModule],
+  imports: [FormsModule, CommonModule, ClipboardModule, PasswordStrengthMeterComponent],
   templateUrl: './password-generator.component.html',
   styleUrls: ['./password-generator.component.scss']
 })
@@ -18,6 +19,7 @@ export class PasswordGeneratorComponent {
   includeNumbers: boolean = true;
   includeSymbols: boolean = true;
   passwordStrength: string = '';
+  
 
   constructor(private clipboardService: ClipboardService) {}
 
